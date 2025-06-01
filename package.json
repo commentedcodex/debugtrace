@@ -1,0 +1,175 @@
+{
+  "name": "debugtrace",
+  "displayName": "DebugTrace",
+  "description": "Fast and intelligent debugging for Dart developers. Choose between print() and debugPrint() for optimal logging.",
+  "version": "1.0.0",
+  "publisher": "PrashantGupta",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#0175C2",
+    "theme": "dark"
+  },
+  "keywords": [
+    "dart",
+    "flutter",
+    "debug",
+    "logging",
+    "print",
+    "console",
+    "development",
+    "debugging"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/commentedcodex/debugtrace"
+  },
+  "bugs": {
+    "url": "https://github.com/commentedcodex/debugtrace/issues"
+  },
+  "homepage": "https://github.com/commentedcodex/debugtrace#readme",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Debuggers",
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:dart"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "debugtrace.insertLog",
+        "title": "DebugTrace: Insert Log"
+      },
+      {
+        "command": "debugtrace.insertLogWithMessage",
+        "title": "DebugTrace: Insert Log with Message"
+      },
+      {
+        "command": "debugtrace.deleteAllLogs",
+        "title": "DebugTrace: Delete All Logs"
+      },
+      {
+        "command": "debugtrace.commentAllLogs",
+        "title": "DebugTrace: Comment All Logs"
+      },
+      {
+        "command": "debugtrace.uncommentAllLogs",
+        "title": "DebugTrace: Uncomment All Logs"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "debugtrace.insertLog",
+        "key": "ctrl+l",
+        "mac": "cmd+l",
+        "when": "editorTextFocus && resourceLangId == dart"
+      },
+      {
+        "command": "debugtrace.insertLogWithMessage",
+        "key": "ctrl+shift+l",
+        "mac": "cmd+shift+l",
+        "when": "editorTextFocus && resourceLangId == dart"
+      },
+      {
+        "command": "debugtrace.deleteAllLogs",
+        "key": "ctrl+alt+l",
+        "mac": "cmd+alt+l",
+        "when": "editorTextFocus && resourceLangId == dart"
+      },
+      {
+        "command": "debugtrace.commentAllLogs",
+        "key": "ctrl+alt+c",
+        "mac": "cmd+alt+c",
+        "when": "editorTextFocus && resourceLangId == dart"
+      },
+      {
+        "command": "debugtrace.uncommentAllLogs",
+        "key": "ctrl+alt+u",
+        "mac": "cmd+alt+u",
+        "when": "editorTextFocus && resourceLangId == dart"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "debugtrace.insertLog",
+          "when": "resourceLangId == dart",
+          "group": "debugtrace"
+        },
+        {
+          "command": "debugtrace.insertLogWithMessage",
+          "when": "resourceLangId == dart",
+          "group": "debugtrace"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "debugtrace.insertLog",
+          "when": "resourceLangId == dart"
+        },
+        {
+          "command": "debugtrace.insertLogWithMessage",
+          "when": "resourceLangId == dart"
+        },
+        {
+          "command": "debugtrace.deleteAllLogs",
+          "when": "resourceLangId == dart"
+        },
+        {
+          "command": "debugtrace.commentAllLogs",
+          "when": "resourceLangId == dart"
+        },
+        {
+          "command": "debugtrace.uncommentAllLogs",
+          "when": "resourceLangId == dart"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "DebugTrace",
+      "properties": {
+        "debugtrace.logType": {
+          "type": "string",
+          "default": "print",
+          "enum": [
+            "print",
+            "debugPrint"
+          ],
+          "description": "Type of logging function to use - print() for console output, debugPrint() for Flutter apps"
+        },
+        "debugtrace.logMessagePrefix": {
+          "type": "string",
+          "default": "DebugTrace🔎:",
+          "description": "Prefix for log messages"
+        },
+        "debugtrace.includeFileInfo": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include file name and line number in log messages"
+        },
+        "debugtrace.addSeparatorLine": {
+          "type": "boolean",
+          "default": false,
+          "description": "Add separator line after log statements"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "npx @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "@vscode/vsce": "^3.4.2",
+    "typescript": "^4.9.4"
+  }
+}
