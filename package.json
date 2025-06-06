@@ -1,8 +1,8 @@
 {
   "name": "debugtrace",
-  "displayName": "DebugTrace",
-  "description": "Fast and intelligent debugging for Dart developers. Choose between print() and debugPrint() for optimal logging.",
-  "version": "1.0.0",
+  "displayName": "Debug Trace",
+  "description": "Shortcut tool for debugging statement for Dart developers. Choose between print() and debugPrint().",
+  "version": "1.0.1",
   "publisher": "PrashantGupta",
   "license": "MIT",
   "icon": "icon.png",
